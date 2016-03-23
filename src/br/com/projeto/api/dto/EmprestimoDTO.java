@@ -1,8 +1,6 @@
-package br.com.projeto.api.entity;
-import java.util.List;
-import com.google.common.collect.Lists;
+package br.com.projeto.api.dto;
 
-public class Emprestimo {
+public class EmprestimoDTO {
 	
 	private Long id_emp;
 	private Long livro_emp;
@@ -11,20 +9,12 @@ public class Emprestimo {
 	private String data_entrada;
 	private String data_devolucao;
 	private String status;
+
 	
-	public static final String TABLE = "TABELA_EMPRESTIMOS";
-	public static final String COL_ID = "ID";
-	public static final String COL_LIVRO = "LIVRO";
-	public static final String COL_CLIENTE = "CLIENTE";
-	public static final String COL_FUNCIONARIO = "FUNCIONARIO";
-	public static final String COL_ENTRADA = "ENTRADA";
-	public static final String COL_DEVOLUCAO = "DEVOLUCAO";
-	public static final String COL_STATUS = "STATUS";
-	
-	public Emprestimo() {
+	public EmprestimoDTO() {
 	}
 
-	public Emprestimo(Long id, Long livro_emp, Long cliente_emp, Long func_emp, String data_entrada, String data_devolucao, String status) {
+	public EmprestimoDTO(Long id, Long livro_emp, Long cliente_emp, Long func_emp, String data_entrada, String data_devolucao, String status) {
 		this.setId_emp(id);
 		this.setLivro_emp(livro_emp);
 		this.setCliente_emp(cliente_emp);
@@ -83,14 +73,8 @@ public class Emprestimo {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	public static List<String> getColunas() {
-		return Lists.newArrayList(COL_ID, COL_LIVRO, COL_CLIENTE, COL_FUNCIONARIO, COL_ENTRADA, COL_DEVOLUCAO, COL_STATUS);
+	@Override
+	public String toString() {
+		return "Emprestimo[" + this.id_emp + " - " + this.livro_emp + " - " + this.cliente_emp + "]";
 	}
-
-	public static String[] getColunasArray() {
-		return new String[] { COL_ID, COL_LIVRO, COL_CLIENTE, COL_FUNCIONARIO, COL_ENTRADA, COL_DEVOLUCAO, COL_STATUS};
-	}
-
-	
 }

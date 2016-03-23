@@ -1,9 +1,6 @@
-package br.com.projeto.api.entity;
-import java.util.List;
+package br.com.projeto.api.dto;
 
-import com.google.common.collect.Lists;
-
-public class Livro {
+public class LivroDTO {
 	
 	private Long id_livro;
 	private String titulo;
@@ -11,19 +8,12 @@ public class Livro {
 	private String genero;
 	private String editora;
 	private Long emp_id;
+
 	
-	public static final String TABLE = "TABELA_LIVROS";
-	public static final String COL_ID = "ID";
-	public static final String COL_TITULO = "TITULO";
-	public static final String COL_AUTOR = "AUTOR";
-	public static final String COL_GENERO = "GENERO";
-	public static final String COL_EDITORA = "EDITORA";
-	public static final String COL_EMPRESTIMO = "EMPRESTIMO";
-	
-	public Livro() {
+	public LivroDTO() {
 	}
 	
-	public Livro(Long id, String titulo, String autor, String genero, String editora, Long emp_id) {
+	public LivroDTO(Long id, String titulo, String autor, String genero, String editora, Long emp_id) {
 		this.setId_livro(id);
 		this.setTitulo(titulo);
 		this.setAutor(autor);
@@ -73,12 +63,8 @@ public class Livro {
 	public void setEmp_id(Long emp_id) {
 		this.emp_id = emp_id;
 	}
-	
-	public static List<String> getColunas() {
-		return Lists.newArrayList(COL_ID, COL_TITULO, COL_AUTOR, COL_GENERO, COL_EDITORA, COL_EMPRESTIMO);
+	@Override
+	public String toString() {
+		return "Livro[" + this.id_livro + " - " + this.titulo + "]";
 	}
-	public static String[] getColunasArray() {
-		return new String[] { COL_ID, COL_TITULO, COL_AUTOR, COL_GENERO, COL_EDITORA, COL_EMPRESTIMO};
-	}
-
 }
